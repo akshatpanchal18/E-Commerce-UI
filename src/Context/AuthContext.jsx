@@ -3,7 +3,7 @@ import { createContext, useContext, useReducer, useState } from "react";
 const AuthContext = createContext()
 
 export const AuthProvider = ({children})=>{
-    const URL = 'http://localhost:5000/api/v1'
+    const URL = 'https://e-commerce-server-b1yi.onrender.com/api/v1'
   const [success,setSuccess]= useState(false)
   const [Error,setError]= useState(false)
   const [Authenticated,setAuthenticated]= useState(false)
