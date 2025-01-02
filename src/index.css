@@ -1,0 +1,22 @@
+/* Apply global styles */
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Scrollbar styling */
+&::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+&::-webkit-scrollbar-thumb {
+  background: #3b4f46;
+  /* border-radius: 10px;  */
+}
+
+&::-webkit-scrollbar-track {
+  background: #171f1b;
+}
