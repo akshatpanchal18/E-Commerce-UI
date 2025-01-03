@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useCart } from "../Context/CartContext";
 import { useCheckout } from "../Context/CheckOutContext";
 import { useOrder } from "../Context/OrderContext";
 import Receipt from "./Receipt";

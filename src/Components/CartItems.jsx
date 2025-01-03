@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useAuth } from "../Context/AuthContext";
 import { useCart } from "../Context/CartContext";
 import Popup from "../Helpers/Popup";
-import Counter from "../Helpers/Counter";
 import { MdDeleteForever } from "react-icons/md";
 import { FaArrowLeft, FaMinus, FaPlus } from "react-icons/fa";
 import { useCheckout } from "../Context/CheckOutContext";

@@ -6,24 +6,25 @@ import { useNavigate } from "react-router-dom";
 import OrderHistory from "./OrderHistory";
 
 const UserProfile = () => {
-  const { logout } = useAuth();
+  const { logout, Currentuser } = useAuth();
   const [isuser, setUser] = useState(null);
   const [showOrder, setShowOrder] = useState(false);
   useEffect(() => {
-    const userData = localStorage.getItem("userData");
-    if (userData) {
-      setUser(JSON.parse(userData));
-      // console.log(JSON.parse(userData));
-    }
+    Currentuser().then((res) => {
+      if (res.success) {
+        setUser(res.data);
+        // console.log(isuser);
+      }
+    });
   }, []);
   const navigate = useNavigate();
   const handleOrderHistory = () => {
     console.log("Redirect to order history");
-    setShowOrder(true)
+    setShowOrder(true);
   };
-const handleClose = ()=>{
-  setShowOrder(false)
-}
+  const handleClose = () => {
+    setShowOrder(false);
+  };
   const handleEditProfile = () => {
     console.log("Redirect to edit profile");
     // Add navigation logic here for editing the profile
@@ -43,7 +44,7 @@ const handleClose = ()=>{
     <>
       {showOrder ? (
         <>
-          <OrderHistory onClose={handleClose}/>
+          <OrderHistory onClose={handleClose} />
         </>
       ) : (
         <>

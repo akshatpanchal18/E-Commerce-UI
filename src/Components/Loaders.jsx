@@ -42,7 +42,6 @@ left:42%;
       transform: rotate(.5turn);
    }
 `;
-
 export const Blob = styled.div`
  width: 89.6px;
    height: 89.6px;
