@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [success, setSuccess] = useState(false);
   const [Error, setError] = useState(false);
   const [Authenticated, setAuthenticated] = useState(false);
+  const [userData,setUserData]=useState([])
 
   const refreshToken = async () => {
     try {
@@ -67,6 +68,7 @@ export const AuthProvider = ({ children }) => {
     const result = await res.json();
     console.log(result);
     if (result.statusCode === 200) {
+      setUserData(result.data)
       return { success: true, data: result.data };
     }
   };
@@ -125,7 +127,8 @@ export const AuthProvider = ({ children }) => {
         Error,
         Authenticated,
         refreshToken,
-        Currentuser
+        Currentuser,
+        userData
       }}
     >
       {children}
