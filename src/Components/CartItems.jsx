@@ -10,7 +10,7 @@ import { useCheckout } from "../Context/CheckOutContext";
 import Amount from "../Helpers/Amount";
 
 const CartPage = () => {
-  const { Authenticated,userData } = useAuth();
+  const { Authenticated,Currentuser } = useAuth();
   const { cart, removeItem, fetchCart, handleQuantity } = useCart();
   const {createCheckOut}=useCheckout()
   const [user, setUser] = useState(null); // Example address
@@ -26,16 +26,14 @@ const CartPage = () => {
   }, []);
   useEffect(() => {
     if(isAuthenticated){
+      Currentuser().then((res)=>{
+        if (res.success) {
+          setUser(res.data);
+        }
+      })
     fetchCart();
   }
   }, [isAuthenticated]);
-
-  useEffect(() => {
-    if (userData) {
-      setUser(userData);
-      // console.log(JSON.parse(userData));
-    }
-  }, []);
   useEffect(() => {
     // Initialize item counts based on cart items
     if (cart.items) {
